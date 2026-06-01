@@ -1,7 +1,7 @@
 # DocEditor 技术栈完整报告
 
 > 为翻译人员设计的专业在线文档编辑器
-> 最后更新：2026-05-31
+> 最后更新：2026-06-01
 
 ---
 
@@ -23,7 +23,7 @@ DocEditor 是一个基于 Web 的专业文档编辑器，专为翻译人员设�
 │  App.tsx → Ribbon → Editor → ReferencePanel → Modal  │
 ├─────────────────────────────────────────────────────┤
 │                  状态管理层 (State)                    │
-│         Zustand Stores × 6 + React Hooks × 6         │
+│         Zustand Stores × 7 + React Hooks × 6         │
 ├─────────────────────────────────────────────────────┤
 │                  服务层 (Services)                     │
 │  translateApi / importDoc / exportDoc / pdfMerge      │
@@ -89,7 +89,7 @@ src/
 │   ├── ErrorBoundary.tsx            # React 错误边界
 │   └── ui/ToolbarButton.tsx         # 共享工具栏按钮组件
 ├── hooks/                           # 自定义 Hooks（6个）
-│   ├── useSelection.ts              # 文本选择检测（300ms 防抖，长度限制 1-200）
+│   ├── useSelection.ts              # 文本选择检测（300ms 防抖，长度限制 1-5000）
 │   ├── useAutoSave.ts               # 自动保存（1秒防抖，beforeunload 保护）
 │   ├── useDrafts.ts                 # 草稿管理
 │   ├── useLiveDrafts.ts             # 响应式草稿/版本/术语查询（手动订阅总线）
@@ -178,7 +178,7 @@ src/
 |------|------|------|
 | **Zustand** | 5.0.14 | 轻量级状态管理 |
 
-**6 个 Store**：
+**7 个 Store**：
 
 | Store | 职责 |
 |-------|------|
@@ -188,6 +188,7 @@ src/
 | `termStore` | 术语 CRUD、导入导出、模糊匹配 |
 | `translationMemoryStore` | 翻译记忆 CRUD、相似度搜索 |
 | `editorStyleStore` | 编辑器样式（字号/行高/字体/主题） |
+| `panelStore` | 参考面板状态持久化（PDF/图片/代码/DOCX → IndexedDB） |
 
 ### 3.4 数据持久化
 
@@ -206,6 +207,7 @@ src/
 | `terms` | id | source, createdAt | 术语对 |
 | `translationMemory` | id | source, usageCount, createdAt | 翻译记忆 |
 | `bilingualSegments` | ++id | source, createdAt | 双语句对 |
+| `panelState` | key | — | 参考面板文件持久化（PDF/图片/代码/DOCX） |
 
 ### 3.5 样式方案
 
@@ -277,7 +279,7 @@ src/
 
 ### 4.3 划词翻译系统
 
-1. `useSelection` Hook 检测选区（300ms 防抖 + 长度限制 1-200 字）
+1. `useSelection` Hook 检测选区（300ms 防抖 + 长度限制 1-5000 字）
 2. `refineToWordBoundary()` 词边界精确化 → `smartTrimSelection()` 句子收缩
 3. `TranslatePopup` 弹窗：可编辑源文本、收缩按钮、8 种语言、翻译记忆优先
 4. 支持编辑器区域和参考面板双区域选词
@@ -351,7 +353,7 @@ App.tsx
 
 ## 七、测试覆盖
 
-**21 个测试文件，111 个测试用例**：
+**22 个测试文件，113 个测试用例**：
 
 | 类型 | 文件数 | 用例数 | 覆盖范围 |
 |------|--------|--------|----------|
@@ -371,7 +373,7 @@ App.tsx
 | 开发依赖 | 11 个 |
 | TipTap 扩展 | 25 个（20 官方 + 5 自定义 + 8 自定义扩展文件） |
 | 自定义 Hooks | 6 个 |
-| Zustand Stores | 6 个 |
+| Zustand Stores | 7 个 |
 | 服务模块 | 8 个 |
 | 组件 | 30+ 个 |
 
