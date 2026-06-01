@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vite/
+*.log
+__pycache__/
+*.pyc
+uploads/
+test.pdf
+test_output*.pdf
+test_*.pdf
+.github项目/
+.playwright-mcp/
+.superpowers/
+backend/.env
+github项目/

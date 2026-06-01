@@ -1,0 +1,78 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "☰" [ref=e5] [cursor=pointer]
+    - heading "未命名文档" [level=1] [ref=e67]
+    - generic [ref=e68]: v1
+    - generic [ref=e7]:
+      - button "导入" [ref=e8] [cursor=pointer]
+      - button "快照" [ref=e9] [cursor=pointer]
+      - button "导出" [ref=e10] [cursor=pointer]
+      - button "参考" [ref=e11] [cursor=pointer]
+      - button "术语库" [ref=e12] [cursor=pointer]
+      - button "PDF合并" [ref=e13] [cursor=pointer]
+      - button "版本历史" [ref=e14] [cursor=pointer]
+      - button "译 ✓" [ref=e15] [cursor=pointer]
+      - button "引擎配置" [ref=e16] [cursor=pointer]
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - button "开始" [ref=e20] [cursor=pointer]
+      - button "插入" [ref=e21] [cursor=pointer]
+      - button "布局" [ref=e22] [cursor=pointer]
+    - generic [ref=e24]:
+      - button "撤销" [ref=e25] [cursor=pointer]:
+        - img [ref=e26]
+      - button "重做" [disabled] [ref=e28]:
+        - img [ref=e29]
+      - combobox [ref=e32]:
+        - option "字体" [disabled] [selected]
+        - option "宋体"
+        - option "黑体"
+        - option "微软雅黑"
+        - option "Arial"
+      - combobox [ref=e33]:
+        - option "字号" [disabled] [selected]
+        - option "12"
+        - option "14"
+        - option "16"
+        - option "18"
+        - option "20"
+        - option "24"
+        - option "28"
+        - option "32"
+        - option "36"
+        - option "48"
+      - button "B" [ref=e35] [cursor=pointer]
+      - button "I" [ref=e36] [cursor=pointer]
+      - button "U" [ref=e37] [cursor=pointer]
+      - button "S" [ref=e38] [cursor=pointer]
+      - generic "字体颜色" [ref=e41] [cursor=pointer]:
+        - text: A
+        - textbox "A" [ref=e42]: "#000000"
+      - button "H1" [ref=e44] [cursor=pointer]
+      - button "H2" [ref=e45] [cursor=pointer]
+      - button "H3" [ref=e46] [cursor=pointer]
+      - button "无序列表" [ref=e48] [cursor=pointer]:
+        - img [ref=e49]
+      - button "有序列表" [ref=e51] [cursor=pointer]:
+        - img [ref=e52]
+  - generic [ref=e54]:
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - textbox "搜索草稿..." [ref=e58]
+        - button "+" [ref=e59] [cursor=pointer]
+      - generic [ref=e60]:
+        - generic [ref=e270] [cursor=pointer]:
+          - generic [ref=e271]:
+            - generic [ref=e272]: 未命名文档
+            - generic [ref=e273]:
+              - button "✏️" [ref=e274]
+              - button "🗑️" [ref=e275]
+          - generic [ref=e276]: 刚刚 · v1
+        - generic [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]:
+            - generic [ref=e71]: 未命名文档
+            - generic [ref=e72]:
+              - button "✏️" [ref=e73]
+              - button "🗑️" [ref=e74]
+          - generic [ref=e75]: 1分钟前 · v4
+    - paragraph [ref=e277]: 开始编辑您的文档...

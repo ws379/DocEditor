@@ -1,0 +1,48 @@
+:root {
+  /* Editor typography */
+  --editor-font-size: 14px;
+  --editor-line-height: 1.8;
+  --editor-font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, sans-serif;
+
+  /* Editor colors (light theme) */
+  --editor-bg: #ffffff;
+  --editor-text: #1a1a1a;
+  --editor-muted: #6b7280;
+  --editor-border: #e5e7eb;
+  --editor-accent: #3b82f6;
+  --editor-accent-light: #dbeafe;
+  --editor-selection: #bfdbfe;
+
+  /* Editor spacing */
+  --editor-padding-x: 56px;
+  --editor-padding-y: 40px;
+  --editor-max-width: 800px;
+
+  /* Z-index layers (higher = on top) */
+  --z-drag-handle: 50;
+  --z-tooltip: 100;
+  --z-modal: 200;
+
+  /* Node-specific overrides */
+  --editor-h1-size: 2em;
+  --editor-h2-size: 1.5em;
+  --editor-h3-size: 1.25em;
+  --editor-code-bg: #1f2937;
+  --editor-code-text: #e5e7eb;
+  --editor-blockquote-border: #3b82f6;
+  --editor-blockquote-bg: #f8fafc;
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --editor-bg: #1f2937;
+  --editor-text: #f9fafb;
+  --editor-muted: #9ca3af;
+  --editor-border: #374151;
+  --editor-accent: #60a5fa;
+  --editor-accent-light: #1e3a5f;
+  --editor-selection: #1e40af;
+  --editor-code-bg: #111827;
+  --editor-code-text: #f3f4f6;
+  --editor-blockquote-bg: #111827;
+}

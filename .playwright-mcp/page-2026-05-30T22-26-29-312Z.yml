@@ -1,0 +1,62 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - button "☰" [ref=e5] [cursor=pointer]
+    - heading "DocEditor" [level=1] [ref=e6]
+    - generic [ref=e7]:
+      - button "导入" [ref=e8] [cursor=pointer]
+      - button "快照" [ref=e9] [cursor=pointer]
+      - button "导出" [ref=e10] [cursor=pointer]
+      - button "参考" [ref=e11] [cursor=pointer]
+      - button "术语库" [ref=e12] [cursor=pointer]
+      - button "PDF合并" [ref=e13] [cursor=pointer]
+      - button "版本历史" [ref=e14] [cursor=pointer]
+      - button "引擎配置" [ref=e15] [cursor=pointer]
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - button "开始" [ref=e19] [cursor=pointer]
+      - button "插入" [ref=e20] [cursor=pointer]
+      - button "布局" [ref=e21] [cursor=pointer]
+    - generic [ref=e23]:
+      - button "撤销" [disabled] [ref=e24]:
+        - img [ref=e25]
+      - button "重做" [disabled] [ref=e27]:
+        - img [ref=e28]
+      - combobox [ref=e31]:
+        - option "字体" [disabled] [selected]
+        - option "宋体"
+        - option "黑体"
+        - option "微软雅黑"
+        - option "Arial"
+      - combobox [ref=e32]:
+        - option "字号" [disabled] [selected]
+        - option "12"
+        - option "14"
+        - option "16"
+        - option "18"
+        - option "20"
+        - option "24"
+        - option "28"
+        - option "32"
+        - option "36"
+        - option "48"
+      - button "B" [ref=e34] [cursor=pointer]
+      - button "I" [ref=e35] [cursor=pointer]
+      - button "U" [ref=e36] [cursor=pointer]
+      - button "S" [ref=e37] [cursor=pointer]
+      - generic "字体颜色" [ref=e40] [cursor=pointer]:
+        - text: A
+        - textbox "A" [ref=e41]: "#000000"
+      - button "H1" [ref=e43] [cursor=pointer]
+      - button "H2" [ref=e44] [cursor=pointer]
+      - button "H3" [ref=e45] [cursor=pointer]
+      - button "无序列表" [ref=e47] [cursor=pointer]:
+        - img [ref=e48]
+      - button "有序列表" [ref=e50] [cursor=pointer]:
+        - img [ref=e51]
+  - generic [ref=e53]:
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - textbox "搜索草稿..." [ref=e57]
+        - button "+" [ref=e58] [cursor=pointer]
+      - generic [ref=e60]: 暂无草稿
+    - paragraph [ref=e65]: 开始编辑您的文档...

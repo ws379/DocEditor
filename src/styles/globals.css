@@ -1,0 +1,129 @@
+@import './editor-variables.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; overflow: hidden; }
+
+.ProseMirror { outline: none; min-height: 100%; padding: 40px 60px; font-size: 14px; line-height: 1.8; color: #1a1a1a; }
+.ProseMirror p { margin-bottom: 0.5em; }
+.ProseMirror h1 { font-size: 2em; font-weight: 700; margin-bottom: 0.5em; }
+.ProseMirror h2 { font-size: 1.5em; font-weight: 600; margin-bottom: 0.5em; }
+.ProseMirror h3 { font-size: 1.25em; font-weight: 600; margin-bottom: 0.5em; }
+.ProseMirror h4 { font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em; }
+.ProseMirror h5 { font-size: 1em; font-weight: 600; margin-bottom: 0.5em; }
+.ProseMirror h6 { font-size: 0.9em; font-weight: 600; margin-bottom: 0.5em; }
+.ProseMirror ul { padding-left: 1.5em; margin-bottom: 0.5em; list-style-type: disc; }
+.ProseMirror ol { padding-left: 1.5em; margin-bottom: 0.5em; list-style-type: decimal; }
+.ProseMirror ul ul { list-style-type: circle; }
+.ProseMirror ol ol { list-style-type: lower-alpha; }
+.ProseMirror li { margin-bottom: 0.2em; }
+.ProseMirror li::marker { color: #1a1a1a; }
+.ProseMirror blockquote { border-left: 4px solid #3b82f6 !important; padding: 0.5em 1em !important; color: #4b5563; font-style: italic; margin: 0.8em 0; background: #f8fafc; border-radius: 0 4px 4px 0; }
+.ProseMirror hr { border: none; border-top: 1px solid #e5e7eb; margin: 1em 0; }
+.ProseMirror code { background: #f3f4f6; border-radius: 4px; padding: 0.15em 0.3em; font-family: monospace; font-size: 0.9em; }
+.ProseMirror pre { background: #1f2937; color: #e5e7eb; border-radius: 8px; padding: 1em; overflow-x: auto; }
+.ProseMirror pre code { background: none; color: inherit; }
+.ProseMirror img { display: block; max-width: 100%; height: auto; border-radius: 4px; margin: 0.5em 0; cursor: pointer; }
+.ProseMirror img.ProseMirror-selectednode { outline: 2px solid #3b82f6; border-radius: 4px; resize: both; overflow: hidden; }
+.ProseMirror table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
+.ProseMirror td, .ProseMirror th { border: 1px solid #d1d5db; padding: 0.5em; min-width: 50px; }
+.ProseMirror th { background: #f3f4f6; font-weight: 600; }
+.ProseMirror .selectedCell { background: #dbeafe; }
+.ProseMirror p.is-editor-empty:first-child::before { color: #9ca3af; content: attr(data-placeholder); float: left; height: 0; pointer-events: none; }
+
+/* DragHandle styles */
+[data-tippy-root] { z-index: var(--z-tooltip) !important; }
+.drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 24px;
+  cursor: grab;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+  color: #6b7280;
+  border-radius: 3px;
+  z-index: var(--z-drag-handle);
+}
+.drag-handle:hover { opacity: 1; background: #f3f4f6; }
+.drag-handle:active { cursor: grabbing; }
+
+/* Term highlight styles */
+.term-highlight {
+  text-decoration: underline wavy #f59e0b;
+  text-decoration-skip-ink: none;
+  background-color: rgba(245, 158, 11, 0.1);
+  cursor: pointer;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .ProseMirror { padding: 0; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+
+/* Search & Replace highlight styles */
+.search-result {
+  background-color: #fef08a;
+  border-radius: 2px;
+}
+.search-result-active {
+  background-color: #f97316;
+  color: white;
+}
+
+/* Page Break styles */
+hr.page-break {
+  border: none;
+  border-top: 2px dashed #9ca3af;
+  margin: 2em 0;
+  position: relative;
+}
+hr.page-break::after {
+  content: '分页符';
+  position: absolute;
+  right: 0;
+  top: -10px;
+  font-size: 10px;
+  color: #9ca3af;
+  background: white;
+  padding: 0 4px;
+}
+@media print {
+  hr.page-break {
+    page-break-after: always;
+    border: none;
+    margin: 0;
+  }
+  hr.page-break::after {
+    display: none;
+  }
+}
+
+/* Focus Mode styles */
+body.focus-mode .ProseMirror {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+  padding: 2em 0;
+}
+body.focus-mode header.no-print,
+body.focus-mode .no-print {
+  display: none !important;
+}
+
+/* Toast animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
